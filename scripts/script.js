@@ -317,12 +317,7 @@ let questionDeck = [
     question35,
 ]
 let i = 0;
-// while (i < 35) {
-// for(let i = 0; i < 35; i++){
-randomNumber = (Math.floor(Math.random() * (35-i)));
-console.log(randomNumber);
-
-//randomNumber = (Math.floor(Math.random() * (35-1)));
+let randomNumber = (Math.floor(Math.random() * (35-i)));
 
 currentQuestion = questionDeck[randomNumber].question;
 
@@ -332,8 +327,22 @@ document.getElementById("answerB").innerHTML = questionDeck[randomNumber].B;
 document.getElementById("answerC").innerHTML = questionDeck[randomNumber].C;
 document.getElementById("answerD").innerHTML = questionDeck[randomNumber].D;
 
+function nextQuestion (){
+
+randomNumber = (Math.floor(Math.random() * (35-i)));
+console.log(randomNumber);
+
+currentQuestion = questionDeck[randomNumber].question;
+
+document.getElementById("Question").innerHTML = questionDeck[randomNumber].question;
+document.getElementById("answerA").innerHTML = questionDeck[randomNumber].A;
+document.getElementById("answerB").innerHTML = questionDeck[randomNumber].B;
+document.getElementById("answerC").innerHTML = questionDeck[randomNumber].C;
+document.getElementById("answerD").innerHTML = questionDeck[randomNumber].D;
+}
+
+
 function button1Click() {
-    i++;
     if (questionDeck[randomNumber].answer == "A"){
         document.getElementById("response").innerHTML = "CORRECT!"; 
     } else {
@@ -342,7 +351,6 @@ function button1Click() {
 }
 
 function button2Click() {
-    i++;
     if (questionDeck[randomNumber].answer == "B"){
         document.getElementById("response").innerHTML = "CORRECT!"; 
     } else {
@@ -351,7 +359,6 @@ function button2Click() {
 }
 
 function button3Click() {
-    i++;
     if (questionDeck[randomNumber].answer == "C"){
         document.getElementById("response").innerHTML = "CORRECT!"; 
     } else {
@@ -360,11 +367,17 @@ function button3Click() {
 }
 
 function button4Click() {
-    i++;
     if (questionDeck[randomNumber].answer == "D"){
         document.getElementById("response").innerHTML = "CORRECT!"; 
     } else {
         document.getElementById("response").innerHTML = "WRONG!";
     }
 }
-splicedItems = questionDeck.splice([randomNumber],1);
+
+function button5Click() {
+    i++;
+    nextQuestion();
+    document.getElementById("response").innerHTML = "";
+}
+
+// splicedItems = questionDeck.splice([randomNumber],1);
