@@ -317,6 +317,7 @@ let questionDeck = [
     question35,
 ]
 let i = 0;
+let correctCount = 0;
 let randomNumber = (Math.floor(Math.random() * (35-i)));
 
 currentQuestion = questionDeck[randomNumber].question;
@@ -344,7 +345,8 @@ document.getElementById("answerD").innerHTML = questionDeck[randomNumber].D;
 
 function button1Click() {
     if (questionDeck[randomNumber].answer == "A"){
-        document.getElementById("response").innerHTML = "CORRECT!"; 
+        document.getElementById("response").innerHTML = "CORRECT!";
+        correctCount = correctCount + 1;
     } else {
         document.getElementById("response").innerHTML = "WRONG!";
     }
@@ -352,7 +354,8 @@ function button1Click() {
 
 function button2Click() {
     if (questionDeck[randomNumber].answer == "B"){
-        document.getElementById("response").innerHTML = "CORRECT!"; 
+        document.getElementById("response").innerHTML = "CORRECT!";
+        correctCount = correctCount + 1; 
     } else {
         document.getElementById("response").innerHTML = "WRONG!";
     }
@@ -360,7 +363,8 @@ function button2Click() {
 
 function button3Click() {
     if (questionDeck[randomNumber].answer == "C"){
-        document.getElementById("response").innerHTML = "CORRECT!"; 
+        document.getElementById("response").innerHTML = "CORRECT!";
+        correctCount = correctCount + 1; 
     } else {
         document.getElementById("response").innerHTML = "WRONG!";
     }
@@ -368,16 +372,22 @@ function button3Click() {
 
 function button4Click() {
     if (questionDeck[randomNumber].answer == "D"){
-        document.getElementById("response").innerHTML = "CORRECT!"; 
+        document.getElementById("response").innerHTML = "CORRECT!";
+        correctCount = correctCount + 1; 
     } else {
         document.getElementById("response").innerHTML = "WRONG!";
     }
 }
 
 function button5Click() {
+    if (i == 34) {
+        document.getElementById("response").innerHTML = "GAME OVER!";
+        document.getElementById("score").innerHTML = `Final score ${correctCount} out of 35`;
+    } else {
     i++;
+    splicedItems = questionDeck.splice([randomNumber],1);
     nextQuestion();
     document.getElementById("response").innerHTML = "";
+    document.getElementById("score").innerHTML = `${correctCount} out of ${i}`;
+    }
 }
-
-// splicedItems = questionDeck.splice([randomNumber],1);

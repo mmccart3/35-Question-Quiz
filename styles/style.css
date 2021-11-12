@@ -119,6 +119,12 @@ ul, ol {
     font-size: 250%;
     text-align: left;
 }
+#score {
+  color: blue;
+  font-family:"Verdana","sans-serif";
+  font-size: 200%;
+  text-align: left;
+}
   h1 {
     color:#080a83;
     font-family:"Verdana","sans-serif";
